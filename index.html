@@ -9,20 +9,32 @@
 </head>
 <body>
     <h1>Hangman Game</h1>
-    <div class="platform">
+    <div class="gameDisplay">
         <div class="structure">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="structureBars">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="dummy">
+                <div class="dummyHead"></div>
+                <div class="dummyBody"></div>
+                <div class="left-arm"></div>
+                <div class="right-arm"></div>
+                <div class="left-leg"></div>
+                <div class="right-leg"></div>
+            </div>
         </div>
-        <div class="dummy">
-            <div class="dummyHead"></div>
-            <div class="dummyBody"></div>
-            <div class="left-arm"></div>
-            <div class="right-arm"></div>
-            <div class="left-leg"></div>
-            <div class="right-leg"></div>
+        <div class="letters-area">
+            <div class="letter">g</div>
+            <div class="emptyLetter"></div>
         </div>
+    </div>
+    <div class="GUI">
+        <h2>The tip is: <span>teste</span></h2>
+        <h2>Type a letter in the input below</h2>
+        <input type="text" maxlength="1"/>
+        <h3>Already written: <span>a, b, c</span></h3>
     </div>
     
     <script src="assets/js/words.js"></script>
