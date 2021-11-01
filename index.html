@@ -25,16 +25,23 @@
                 <div class="right-leg"></div>
             </div>
         </div>
-        <div class="letters-area">
-            <div class="letter">g</div>
-            <div class="emptyLetter"></div>
-        </div>
+        <div class="letters-area"></div>
     </div>
     <div class="GUI">
-        <h2>The tip is: <span>teste</span></h2>
-        <h2>Type a letter in the input below</h2>
-        <input type="text" maxlength="1"/>
-        <h3>Already written: <span>a, b, c</span></h3>
+        <h2 class="tip">The tip is: <span></span></h2>
+        <div class="endGameScreen">
+            <h2>You lost, the answer was: <span></span></h2>
+            <button>Restart</button>
+        </div>
+        <div class="inputsArea">
+            <h2>Type a letter in the input below</h2>
+            <div class="inputs">
+                <input type="text" maxlength="1"/>
+                <button>try</button>
+            </div>
+        
+            <h3>Already written: <span></span></h3>
+        </div>
     </div>
     
     <script src="assets/js/words.js"></script>
