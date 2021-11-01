@@ -81,7 +81,7 @@ function startGame() {
 
 function checkLetter() {
     if(currentlyPlaying == true){
-        if(winCondition.value !== ''){
+        if(letterInput.value !== ''){
 
             if(winCondition.indexOf(letterInput.value)>-1) {
                 
@@ -115,12 +115,12 @@ function checkLetter() {
             };
 
             writtenLettersHTML = '';
-            writtenLetters.push(letterInput.value);
-            console.log('adicionei '+ letterInput.value)
-            writtenLetters.sort();
-            writtenLettersHTML = writtenLetters.join(', ')
-            writtenLettersArea.innerHTML = writtenLettersHTML
-
+            if(writtenLetters.indexOf(letterInput.value) == -1){
+                writtenLetters.push(letterInput.value);
+                writtenLetters.sort();
+                writtenLettersHTML = writtenLetters.join(', ')
+                writtenLettersArea.innerHTML = writtenLettersHTML
+            }
         }
         letterInput.value = ''
     }

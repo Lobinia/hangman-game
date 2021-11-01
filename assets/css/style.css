@@ -151,6 +151,7 @@ h1 {
 .GUI .inputsArea{
     display:flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
 }
 .GUI .inputs {
@@ -182,8 +183,37 @@ h1 {
     height: 3rem;
 }
 .GUI h3{
+    
+    text-align: center;
     margin-top: 3rem;
 }
 .GUI span {
     text-transform: uppercase;
+}
+@media (max-width:550px) {
+    html {
+        font-size:8px;
+    }
+    .GUI input {
+        font-size:17px;
+        width:50px;
+        padding:10px;
+        }
+
+    .endGameScreen button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .inputs button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .GUI h2 {
+        font-size: 15px;
+    }
+    .GUI h3 {
+        font-size: 15px;
+    }
 }
