@@ -16,6 +16,7 @@ let currentError = 0;
 let currentlyPlaying = true;
 let currentAnswer = '';
 let arrayAnswer = [];
+let ocurrences = [];
 let winCondition = []
 let writtenLetters = [];
 let writtenLettersHTML = '';
@@ -24,11 +25,28 @@ let writtenLettersHTML = '';
 
 document.querySelector('.inputs button').addEventListener('click', checkLetter)
 document.querySelector('.endGameScreen button').addEventListener('click', startGame)
+window.addEventListener('keypress', item =>{
+    if(item.key == 'Enter' && currentlyPlaying == true){
+        checkLetter();
+    }
+})
+window.addEventListener('keypress', item =>{
+    if(item.key.length == 1){
+    letterInput.value = item.key;
+}
+})
+window.addEventListener('keypress', item =>{
+    if(item.code == 'Space' && currentlyPlaying !== true){
+        startGame();
+    }
+})
+
 
 // Functions
 
 function startGame() {
-    
+    writtenLetters = []
+    writtenLettersArea.innerHTML = ''
     currentlyPlaying = true;
     let chosenNumber = Math.floor(Math.random() * words.length);
     let chosenWord = words[chosenNumber];
@@ -66,35 +84,57 @@ function checkLetter() {
         if(winCondition.value !== ''){
 
             if(winCondition.indexOf(letterInput.value)>-1) {
-                let selectedLetter = document.querySelectorAll('.letters-area div')[arrayAnswer.indexOf(letterInput.value)]
-                console.log('tem essa letra! e ta na posição '+arrayAnswer.indexOf(letterInput.value));
-                selectedLetter.classList.remove('emptyLetter');
-                selectedLetter.classList.add('letter');
-                selectedLetter.innerHTML = arrayAnswer[arrayAnswer.indexOf(letterInput.value)];
-                winCondition.splice(winCondition.indexOf(letterInput.value), 1);
+                
+                ocurrences = []
+
+                let k = 0
+                while (currentAnswer.indexOf(letterInput.value, k) !== -1) {
+                
+                    k = currentAnswer.indexOf(letterInput.value, k)
+                    ocurrences.push(currentAnswer.indexOf(letterInput.value, k))
+                    k++
+                }
+                console.log(ocurrences)
+                for (let j in ocurrences){
+                    let selectedLetter = document.querySelectorAll('.letters-area div')[ocurrences[j]]
+                    selectedLetter.classList.remove('emptyLetter');
+                    selectedLetter.classList.add('letter');
+                    selectedLetter.innerHTML = letterInput.value;
+                    winCondition.splice(winCondition.indexOf(letterInput.value), 1);
+                }
                 if(winCondition.length == 0) {
                     wonGame();
                 }
-                writtenLettersHTML = '';
-                writtenLetters.push(arrayAnswer[arrayAnswer.indexOf(letterInput.value)]);
-                writtenLetters.sort();
-                writtenLettersHTML = writtenLetters.join(', ')
-                writtenLettersArea.innerHTML = writtenLettersHTML
-
-
-
-
                 
+            } else if(writtenLetters.indexOf(letterInput.value) !== -1) {
+                console.log(writtenLetters)
             } else {
                 checkError()
-                console.log('n tem essa letra :(')
+                console.log(writtenLetters)
                 currentError++;
             };
 
+            writtenLettersHTML = '';
+            writtenLetters.push(letterInput.value);
+            console.log('adicionei '+ letterInput.value)
+            writtenLetters.sort();
+            writtenLettersHTML = writtenLetters.join(', ')
+            writtenLettersArea.innerHTML = writtenLettersHTML
 
         }
+        letterInput.value = ''
     }
 }
+
+function checkMultipleLetters() {
+
+    console.log(winCondition)
+    
+    
+    console.log(ocurrences)
+}
+
+
 
 function wonGame() {
     currentlyPlaying = false
@@ -119,3 +159,4 @@ function checkError(){
 
 
 startGame()
+
