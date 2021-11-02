@@ -80,33 +80,35 @@ function startGame() {
 }
 
 function checkLetter() {
+    correctedInput = (letterInput.value).toLowerCase()
+    
+    console.log(correctedInput)
     if(currentlyPlaying == true){
         if(letterInput.value !== ''){
 
-            if(winCondition.indexOf(letterInput.value)>-1) {
+            if(winCondition.indexOf(correctedInput)>-1) {
                 
                 ocurrences = []
 
                 let k = 0
-                while (currentAnswer.indexOf(letterInput.value, k) !== -1) {
+                while (currentAnswer.indexOf(correctedInput, k) !== -1) {
                 
-                    k = currentAnswer.indexOf(letterInput.value, k)
-                    ocurrences.push(currentAnswer.indexOf(letterInput.value, k))
+                    k = currentAnswer.indexOf(correctedInput, k)
+                    ocurrences.push(currentAnswer.indexOf(correctedInput, k))
                     k++
                 }
-                console.log(ocurrences)
                 for (let j in ocurrences){
                     let selectedLetter = document.querySelectorAll('.letters-area div')[ocurrences[j]]
                     selectedLetter.classList.remove('emptyLetter');
                     selectedLetter.classList.add('letter');
-                    selectedLetter.innerHTML = letterInput.value;
-                    winCondition.splice(winCondition.indexOf(letterInput.value), 1);
+                    selectedLetter.innerHTML = correctedInput;
+                    winCondition.splice(winCondition.indexOf(correctedInput), 1);
                 }
                 if(winCondition.length == 0) {
                     wonGame();
                 }
                 
-            } else if(writtenLetters.indexOf(letterInput.value) !== -1) {
+            } else if(writtenLetters.indexOf(correctedInput) !== -1) {
                 console.log(writtenLetters)
             } else {
                 checkError()
@@ -115,8 +117,8 @@ function checkLetter() {
             };
 
             writtenLettersHTML = '';
-            if(writtenLetters.indexOf(letterInput.value) == -1){
-                writtenLetters.push(letterInput.value);
+            if(writtenLetters.indexOf(correctedInput) == -1){
+                writtenLetters.push(correctedInput);
                 writtenLetters.sort();
                 writtenLettersHTML = writtenLetters.join(', ')
                 writtenLettersArea.innerHTML = writtenLettersHTML
