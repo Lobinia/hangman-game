@@ -190,9 +190,102 @@ h1 {
 .GUI span {
     text-transform: uppercase;
 }
+@media (min-width:751px) and (max-width:1100px) {
+    html {
+        font-size:7px;
+    }
+    body {
+        height:85vh;
+    }
+    .GUI input {
+        font-size:17px;
+        width:50px;
+        padding:10px;
+        }
+
+    .endGameScreen button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .inputs button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .GUI h2 {
+        font-size: 17px;
+    }
+    .GUI h3 {
+        font-size: 17px;
+    }
+}
+@media (min-width:551px) and (max-width:750px) {
+    html {
+        font-size:5px;
+    }
+    body {
+        height:85vh;
+    }
+    .GUI input {
+        font-size:17px;
+        width:50px;
+        padding:10px;
+        }
+
+    .endGameScreen button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .inputs button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .GUI h2 {
+        font-size: 17px;
+    }
+    .GUI h3 {
+        font-size: 17px;
+    }
+}
 @media (max-width:550px) {
     html {
-        font-size:8px;
+        font-size:4px;
+    }
+    body {
+        height:85vh;
+    }
+    .GUI input {
+        font-size:17px;
+        width:50px;
+        padding:10px;
+        }
+
+    .endGameScreen button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .inputs button {
+        font-size: 17px;
+        width:70px;
+        height: 30px;
+    }
+    .GUI h2 {
+        font-size: 15px;
+    }
+    .GUI h3 {
+        font-size: 15px;
+    }
+}
+@media (max-width:400px) {
+    html {
+        font-size:3px;
+    }
+    body {
+        height:85vh;
     }
     .GUI input {
         font-size:17px;
