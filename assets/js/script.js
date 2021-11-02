@@ -82,7 +82,6 @@ function startGame() {
 function checkLetter() {
     correctedInput = (letterInput.value).toLowerCase()
     
-    console.log(correctedInput)
     if(currentlyPlaying == true){
         if(letterInput.value !== ''){
 
@@ -109,10 +108,9 @@ function checkLetter() {
                 }
                 
             } else if(writtenLetters.indexOf(correctedInput) !== -1) {
-                console.log(writtenLetters)
+                console.log('Letter already written')
             } else {
                 checkError()
-                console.log(writtenLetters)
                 currentError++;
             };
 
@@ -127,16 +125,6 @@ function checkLetter() {
         letterInput.value = ''
     }
 }
-
-function checkMultipleLetters() {
-
-    console.log(winCondition)
-    
-    
-    console.log(ocurrences)
-}
-
-
 
 function wonGame() {
     currentlyPlaying = false
